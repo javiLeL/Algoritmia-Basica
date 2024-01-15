@@ -1,5 +1,24 @@
 package Ejercicio02;
-// 1
+
+/*
+ * Se le proporcionan dos listas enlazadas no vacías que representan dos números enteros no negativos. Los dígitos se almacenan
+ * en orden inverso y cada uno de sus nodos contiene un solo dígito. Suma los dos números y devuelve la suma como una lista
+ * vinculada. Puedes asumir que los dos números no contienen ningún cero a la izquierda, excepto el propio número 0.
+ * 
+ * Example 1:
+ * Input l1={2, 4, 3}; ls={5, 6, 4}
+ * Output {7, 0, 8}
+ * 
+ * Example 2:
+ * Input l1={0}, l2={0}
+ * Output {0}
+ * 
+ * Example 3:
+ * Input l1={9, 9, 9, 9, 9, 9, 9}; l2={9, 9, 9, 9}
+ * Output {8, 9, 9, 9, 0, 0, 0, 1}
+ */
+
+
 import java.util.Arrays;
 
 /**
@@ -9,7 +28,7 @@ import java.util.Arrays;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(algoritmo(new int[]{2, 4, 3}, new int[]{5, 6, 4})));
+        System.out.println(Arrays.toString(algoritmo(new int[]{9, 9, 9, 9, 9, 9, 9}, new int[]{9, 9, 9, 9})));
     }
 
     /**
@@ -22,7 +41,7 @@ public class Main {
         int suma = listToNumberInvert(l1) + listToNumberInvert(l2);
         int[] resultado=new int[String.valueOf(suma).length()];
         for(int i=0;i<resultado.length;i++){
-            resultado[resultado.length-i-1]=suma%10;
+            resultado[i]=suma%10;
             suma/=10; 
         }
         return resultado;
