@@ -18,11 +18,11 @@ package main;
 /**
  * Main
  * @author javier
- * @version 1.0
+ * @version 1.0.2
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println(algoritmo("abcabcbb"));
+        System.out.println(algoritmo("abcabdbb"));
     }
     /**
      * Metodo que alberga el algoritmo solicitado
@@ -30,12 +30,11 @@ public class Main {
     public static int algoritmo(String s){
         int aux = 0, resultado = 0;
         for(int i=1;i<s.length();i++){
-            if (isRepetido(s.substring(aux, i))) {
-                aux=i-1;
-            }else{
-                resultado = resultado<=s.substring(aux, i).length()?s.substring(aux, i).length():resultado;
-                // System.out.println(s.substring(aux, i));
+            while (isRepetido(s.substring(aux, i))) {
+                aux+=1;
             }
+            resultado = resultado<=s.substring(aux, i).length()?s.substring(aux, i).length():resultado;
+            System.out.println(s.substring(aux, i));
         }
         return resultado;
     }
